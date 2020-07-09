@@ -13,6 +13,7 @@ app.use(bodyParser.json({ limit: "10mb" }));
 
 let database = new Datastore('weatherDatabase.db');
 database.loadDatabase();
+const port = process.env.PORT || 3000;
 
 
 // Receive data from client & stores in database // 
@@ -61,6 +62,6 @@ app.get('/weather/:latilong', async (request, response) => {
 });
 
 
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log("Server running brah.");
 })
